@@ -1,3 +1,6 @@
+// input 10 words system checks word with max lenght 
+// and show this word it lenght and number ib array
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
