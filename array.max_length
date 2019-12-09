@@ -1,0 +1,29 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Solution {
+    public static void main(String[] args) throws Exception {
+        BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+        
+        int i;
+        int max = 0;
+        
+        String[] list = new String[10];
+        for(i=0; i<list.length; i++){
+            list[i] = r.readLine();
+        }
+        
+        int[] ar = new int[10];
+        for(i=0; i<ar.length; i++){
+            ar[i] = list[i].length();
+            if(ar[i]>max){
+                max=ar[i];
+            }
+        }
+        for(i=0;i<list.length;i++){
+            if(list[i].length()==max){
+                System.out.println("max is :" + list[i] + " - " + max + " symb, element - " + (i+1));
+            }
+        }
+    }
+}
