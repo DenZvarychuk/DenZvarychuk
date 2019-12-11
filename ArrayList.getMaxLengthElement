@@ -1,0 +1,32 @@
+// Input elements to String array list, 
+// find element with max length
+// output element with max length, if list has 2 or more elements with the same length show it all
+
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+public class Solution {
+    private static ArrayList<String> strings;
+
+    public static void main(String[] args) throws Exception {
+        BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+        
+        Solution.strings = new ArrayList<String>();
+        int max = 0;
+        
+        for(int i=0; i<5; i++){
+            String g = r.readLine();
+            int a = g.length();
+            if (a>=max) {
+                strings.add(g);
+                max = a;
+            }
+        }
+        
+        for(int i=0; i<strings.size(); i++){
+            System.out.println(strings.get(i));
+        }
+    }
+}
