@@ -1,7 +1,6 @@
 // Input elements to String array list, 
-// find element with min length
-// output element with min length, 
-// if list has 2 or more elements with the same length show it all (?)
+// find an element with min length,
+// if list has 2 or more elements with the same length show them all
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
