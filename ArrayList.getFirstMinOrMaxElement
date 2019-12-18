@@ -1,0 +1,54 @@
+// Input 10 elements to String array list, 
+// Find the elements with min and max length
+// If list has 2 or more elements with the same length take the first one.
+// Output min or max element which appears first in the list.
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+        
+        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> listMin = new ArrayList<String>();
+        ArrayList<String> listMax = new ArrayList<String>();
+        
+        for(int i=0; i<10; i++) list.add(r.readLine());       // Filling the List
+        
+        int min = list.get(0).length();
+        int max = 0;
+        
+        for(int i=0; i<list.size(); i++){
+            if(min>list.get(i).length()){        // Check string with min length
+                listMin.clear();
+                listMin.add(list.get(i));
+                min = list.get(i).length();
+            }
+            if(max<list.get(i).length()){        // Check string with max length
+                listMax.clear();
+                listMax.add(list.get(i));
+                max = list.get(i).length();
+            }
+        }
+        
+        int posMin = 0;
+        int posMax = 0;
+        
+        for(int i=0; i<list.size(); i++){
+            if(listMin.get(0).length()==list.get(i).length()){      // Min length string position in main List check
+                posMin = i-1;
+            }
+            if(listMax.get(0).length()==list.get(i).length()){      // Max length string position in main List check
+                posMax = i-1;
+            }
+        }
+        
+        String answer = (posMin<posMax) ? listMin.get(0) : listMax.get(0);   // position results compare
+        
+        System.out.println(answer);
+        
+    }
+}
