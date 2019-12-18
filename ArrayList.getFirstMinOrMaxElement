@@ -35,25 +35,17 @@ public class Solution {
             }
         }
         
-        int posMin = 0;
-        int posMax = 0;
-        
-        for(int i=0; i<list.size(); i++){                           // Min length string position in main List check
-            if(listMin.get(0).length()==list.get(i).length()){
-                posMin = i;
+        for(String g : list){                           // length compare
+            if(listMin.get(0).length()== g.length()){
+                System.out.println(listMin.get(0));
+                break;
+            }
+            
+            if(listMax.get(0).length()== g.length()){
+                System.out.println(listMax.get(0));
                 break;
             }
         }
-        
-        for(int i=0; i<list.size(); i++){                           // Max length string position in main List check
-            if(listMax.get(0).length()==list.get(i).length()){      
-                posMax = i;
-                break;
-            }
-        }
-        
-        String answer = (posMin<posMax) ? listMin.get(0) : listMax.get(0);   // position results compare
-        System.out.println(answer);
         
     }
 }
