@@ -27,7 +27,7 @@ public class Solution {
                     listMin.clear();
                     listMin.add(list.get(i));
                 } else if(min==list.get(i).length()){
-                    list.add(list.get(i));
+                    listMin.add(list.get(i));
                 }
             }
         
