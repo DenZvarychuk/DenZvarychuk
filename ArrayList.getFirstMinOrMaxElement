@@ -19,10 +19,11 @@ public class Solution {
         for(int i=0; i<10; i++) list.add(r.readLine());       // Filling the List
         
         int min = list.get(0).length();
+        listMin.add(list.get(0));
         int max = 0;
         
         for(int i=0; i<list.size(); i++){
-            if(min>=list.get(i).length()){        // Check string with min length
+            if(min>list.get(i).length()){        // Check string with min length
                 listMin.clear();
                 listMin.add(list.get(i));
                 min = list.get(i).length();
