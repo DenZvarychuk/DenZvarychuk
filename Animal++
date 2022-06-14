@@ -1,0 +1,158 @@
+// main page:
+--------------------
+
+package com.test;
+
+import static com.test.AgeTest.checkAge;
+
+public class Test {
+
+    static int count = 0;
+
+    public static void main(String[] args) {
+
+        AgeTest at = new AgeTest(4);
+
+        Cat a = new Cat("1", 2); count++;
+        checkAge(a);
+        Cat b = new Cat(); count++;
+        checkAge(b);
+        Cat c = new Cat("2", 7); count++;
+        checkAge(c);
+        Cat d = new Cat(); count++;
+        checkAge(d);
+
+        Dog a1 = new Dog(); count++;
+        checkAge(a1);
+        Dog b1 = new Dog("w", 3); count++;
+        checkAge(b1);
+        Dog c1 = new Dog(); count++;
+        checkAge(c1);
+        Dog d1 = new Dog("c", 5); count++;
+        checkAge(d1);
+
+
+
+        System.out.println("all obj are: "+count);
+        System.out.println("all cats: "+Cat.count);
+        System.out.println("all no name cats: "+Cat.ncount);
+        System.out.println("all dogs: "+Dog.count);
+        System.out.println("all no name dogs:"+Dog.ncount);
+
+        System.out.println("all allowed animals: " + AgeTest.alwAn);
+        System.out.println("all not allowed animals: " + AgeTest.nAlAn);
+
+        //print(a.name);
+        //print(b.name);
+        //print(c1.name);
+
+    }
+
+    public static void print(String name) {
+        System.out.println(name);
+    }
+
+
+
+-----------------------------------------------------------------
+// 1 Class
+-----------------------------------------------------------------
+
+package com.test;
+
+public class AgeTest {
+
+    static int maxAge;
+    static int alwAn = 0;
+    static int nAlAn = 0;
+    public AgeTest(int i) {
+        maxAge = i;
+    }
+
+    public static boolean checkAge(Dog dog){
+        if (dog.age > maxAge) {
+            //system.out.println(dog.name + " has not allowed age ");
+            nAlAn++;
+            return false;
+        }
+        else if (dog.age == 0) {
+            //System.out.println(dog.name + " has not allowed age ");
+            nAlAn++;
+            return false;
+        }
+        else {
+            //System.out.println(dog.name + " has normal age ");
+            alwAn++;
+            return true;
+        }
+    }
+
+    public static boolean checkAge(Cat cat){
+        if (cat.age > maxAge) {
+            //System.out.println(cat.name + " has not allowed age ");
+            nAlAn++;
+            return false;
+        }
+        else if (cat.age == 0) {
+            //System.out.println(cat.name + " has not allowed age ");
+            nAlAn++;
+            return false;
+        }
+        else {
+            //System.out.println(cat.name + " has normal age ");
+            alwAn++;
+            return true;
+        }
+    }
+
+}
+
+--------------------------------------------------------
+//2 Class
+--------------------------------------------------------
+
+package com.test;
+
+public class Dog {
+    static int count = 0;
+    static int ncount = 0;
+
+    String name;
+    int age;
+
+    public Dog(){
+        count++;
+        ncount++;
+        this.name = "Dog without name number: " + count;
+    }
+    public Dog(String n, int a){
+        this.name = n;
+        this.age = a;
+        count++;
+    }
+}
+
+-----------------------------------------------------------
+// 3 Class
+-----------------------------------------------------------
+
+package com.test;
+
+public class Cat {
+    static int count = 0;
+    static int ncount = 0;
+
+    String name;
+    int age;
+
+    public Cat (){
+        count++;
+        ncount++;
+        this.name = "Cat without name number: " + count;
+    }
+    public Cat(String n, int i){
+        this.name = n;
+        this.age = i;
+        count++;
+    }
+}
